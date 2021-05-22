@@ -1,240 +1,241 @@
-@import url('https://fonts.googleapis.com/css2?family=Pattaya&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-*,::after,::before{
-    box-sizing: border-box;
-    padding: 0;
-    outline: none;
-    margin: 0;
+@import url("https://fonts.googleapis.com/css2?family=Pattaya&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+*,
+::after,
+::before {
+  box-sizing: border-box;
+  padding: 0;
+  outline: none;
+  margin: 0;
 }
-.container{
-    width: 100vw;
-    height: 100vh;
-    position: relative;
-    display: flex;
-    background: #c9c9c9;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Poppins', sans-serif;
+.container {
+  width: 100vw;
+  height: 100vh;
+  min-height: 425px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  background: #c9c9c9;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
 }
-.book{
-
-    width: 300px;
-    height: 70%;
-    position: relative;
-    background: rgb(255, 253, 253);
-    box-shadow: -10px 0px 0px rgb(187, 96, 96), -15px 0px 0 rgb(110, 49, 49),-15px 5px 10px rgb(66, 63, 63),0px 5px 10px rgb(75, 75, 75),-17px 6px 5px #4b4b4b,-17px 1px 2px #444444;
-    &::before,&::after{
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        content: 'TanBooks';
-
-        font-size: 2em;
-        font-weight: 300;
-        font-family: 'Pattaya', sans-serif;
-        color: rgb(114, 63, 63);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        left: 0px;
-        top: 0;
-        background: rgb(216, 130, 103);
-        transition: 1s ease;
-        transform-style: preserve-3d;
-        transform-origin: left;
-        backface-visibility: hidden;
-        z-index: 1;
-        
-    }
-    &::after{
-        content: '';
-        background: rgb(146, 84, 65);
-        backface-visibility: visible;
-        z-index: 0;
-    }
-    &:hover::before,&:hover::after{
-     box-shadow: 4px 3px 5px #444;
-        transform: rotate3d(1, 400, 1, 
-        150deg
-        )  perspective(200px)  ;
-     
-        }
-    &__header{
-        display: flex;
-        justify-content: space-between;
-        padding: 5px 10px;
-        width: 100%;
-
-        &__logo{
-        font-family: 'Pattaya', sans-serif;
-        color: #ffae4d;
-        }
-        &__nav{
-            &__item{
-               position: absolute;
-                cursor: pointer;
-                font-size: 12px;
-                font-weight: 600;
-                transform: translate(225px,5px)scale(1);
-               left: 0;
-               top: 0;
-            
-               text-decoration: none;
-                transition: transform 0.5s ease;
-                &::before{
-                    position: absolute;
-                    left: -33px;
-                    content: 'Next:';
-                }
-                &:hover{
-                    color: rgb(80, 80, 80);
-                }
-                &--active{
-                    position: absolute;
-                    text-decoration: underline;
-                    border:none;
-                   
-                    transform: scale(2) translate(20px,25px);
-                    font-weight: 800;
-                    color: #7ca5ff;
-                    cursor:unset;
-                    padding: 0 10px;
-                    &::before{
-                        content: '';
-                    }
-                    &:hover{
-                      color: #7ca5ff;
-                    }
-                    
-                }
-            }
-        }
-    }
-    &__content{
-        display: flex;
-        width: 100%;
-        position: relative;
-        height: 100%;
-        overflow: hidden!important;
-        &__add_books{
-            position: absolute;
-            top: 45%;
-            left: 50%;
-            transform: translate(-50%,-50%);
-            & label{
-                font-size: 12px;
-                position: relative;
-                left: 0;
-                top: 0;
-                display: inline-block;
-                & span{
-                    padding: 2px 5px;
-                    position: absolute;
-                    left: -5px;
-                    color: #8a7779;
-                    top: 2px;
-                }
-                & input, textarea{
-                    color: #4c4c4c;
-             margin: 20px 0 0 0;
-             background: transparent;
-            
-             padding: 2px 2px;
-             border: 1px solid #505050;
-                }
-              
-            }
-            & button{
-                padding: 5px 10px;
-                width: 100%;
-                position: absolute;
-                bottom: -30px;
-                left: 0;
-                background: transparent;
-                cursor: pointer;
-                font-weight: 700;
-                border: 2px solid #5684ea;
-                color: #5684ea;
-                transition: 0.3s ease;
-                
-                &:hover{
-                    background: #5684ea;
-                    color: #ffffff;
-                }
-            }
-        }
-        &__list_books{
-            position: absolute;
-            width: 100%;
-            height: 80%;
-            background: #fff;
-            margin-top: 45px;
-            transition: 0.5s ease-in-out;
-            overflow-y: auto;
-            opacity: 1;
-            transform: translate(0%, 0%);
-            &::-webkit-scrollbar{
-                display: none;
-            }
-            &.hide{
-                opacity: 0;
-            transform: translate(10%, -10%);
-                visibility: hidden;
-            }
-        }
-    }
-        
-}
-.card{
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    font-size: 10px;
-    width: 90%;
-    margin: 10px auto;
-    background: linear-gradient(to top, #7cffedeb 10%, #11c593 40%);
-    box-shadow: -2px 2px 3px #435c94, inset -2px 2px 3px #7cffedeb;
-    padding: 5px;
-    border-radius: 5px;
-    color: #bef9ff;
-    &__title{
-        font-size: 14px;
-        font-weight: 700;
-        color: #b2ffb4;
-        line-height: 15px;
-        text-transform: capitalize;
-    }
-    &__author{
-        letter-spacing: 1px;
-        font-weight: 300;
-        color: #f0ff0e;
-    }
-    &__price{
-        width: 100%;
-        text-align: right;
-        font-size: 16px;
-        font-weight: 300;
-        padding-right: 5px;
-        color: #406869;
-        &::before{
-            content: 'cost: ';
-            position: absolute;
-            left:5px;
-        }
-    }
-    
-}
-.error{
+.book {
+  width: 300px;
+  height: 70%;
+  min-height: 425px;
+  position: relative;
+  background: rgb(255, 253, 253);
+  box-shadow: -10px 0px 0px rgb(187, 96, 96), -15px 0px 0 rgb(110, 49, 49),
+    -15px 5px 10px rgb(66, 63, 63), 0px 5px 10px rgb(75, 75, 75),
+    -17px 6px 5px #4b4b4b, -17px 1px 2px #444444;
+  &::before,
+  &::after {
     position: absolute;
     width: 100%;
-    left: 0;
-    bottom: -50px;
-    font-size: 10px;
-    color: red;
-    text-align: center;
-    font-weight: 700;
-    transition: 0.5s ease;
-    &.hide{
-        opacity: 0;
-        visibility: 0;
+    height: 100%;
+    content: "TanBooks";
+
+    font-size: 2em;
+    font-weight: 300;
+    font-family: "Pattaya", sans-serif;
+    color: rgb(114, 63, 63);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0px;
+    top: 0;
+    background: rgb(216, 130, 103);
+    transition: 1s ease;
+    transform-style: preserve-3d;
+    transform-origin: left;
+    backface-visibility: hidden;
+    z-index: 1;
+  }
+  &::after {
+    content: "";
+    background: rgb(146, 84, 65);
+    backface-visibility: visible;
+    z-index: 0;
+  }
+  &:hover::before,
+  &:hover::after {
+    box-shadow: 4px 3px 5px #444;
+    transform: rotate3d(1, 400, 1, 150deg) perspective(200px);
+  }
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    width: 100%;
+
+    &__logo {
+      font-family: "Pattaya", sans-serif;
+      color: #ffae4d;
     }
+    &__nav {
+      &__item {
+        position: absolute;
+        cursor: pointer;
+        font-size: 12px;
+        font-weight: 600;
+        transform: translate(225px, 5px) scale(1);
+        left: 0;
+        top: 0;
+
+        text-decoration: none;
+        transition: transform 0.5s ease;
+        &::before {
+          position: absolute;
+          left: -33px;
+          content: "Next:";
+        }
+        &:hover {
+          color: rgb(80, 80, 80);
+        }
+        &--active {
+          position: absolute;
+          text-decoration: underline;
+          border: none;
+
+          transform: scale(2) translate(20px, 25px);
+          font-weight: 800;
+          color: #7ca5ff;
+          cursor: unset;
+          padding: 0 10px;
+          &::before {
+            content: "";
+          }
+          &:hover {
+            color: #7ca5ff;
+          }
+        }
+      }
+    }
+  }
+  &__content {
+    display: flex;
+    width: 100%;
+    position: relative;
+    height: 100%;
+    overflow: hidden !important;
+    &__add_books {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      & label {
+        font-size: 12px;
+        position: relative;
+        left: 0;
+        top: 0;
+        display: inline-block;
+        & span {
+          padding: 2px 5px;
+          position: absolute;
+          left: -5px;
+          color: #8a7779;
+          top: 2px;
+        }
+        & input,
+        textarea {
+          color: #4c4c4c;
+          margin: 20px 0 0 0;
+          background: transparent;
+
+          padding: 2px 2px;
+          border: 1px solid #505050;
+        }
+      }
+      & button {
+        padding: 5px 10px;
+        width: 100%;
+        position: absolute;
+        bottom: -30px;
+        left: 0;
+        background: transparent;
+        cursor: pointer;
+        font-weight: 700;
+        border: 2px solid #5684ea;
+        color: #5684ea;
+        transition: 0.3s ease;
+
+        &:hover {
+          background: #5684ea;
+          color: #ffffff;
+        }
+      }
+    }
+    &__list_books {
+      position: absolute;
+      width: 100%;
+      height: 80%;
+      background: #fff;
+      margin-top: 45px;
+      transition: 0.5s ease-in-out;
+      overflow-y: auto;
+      opacity: 1;
+      transform: translate(0%, 0%);
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      &.hide {
+        opacity: 0;
+        transform: translate(10%, -10%);
+        visibility: hidden;
+      }
+    }
+  }
+}
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-size: 10px;
+  width: 90%;
+  margin: 10px auto;
+  background: linear-gradient(to top, #7cffedeb 10%, #11c593 40%);
+  box-shadow: -2px 2px 3px #435c94, inset -2px 2px 3px #7cffedeb;
+  padding: 5px;
+  border-radius: 5px;
+  color: #bef9ff;
+  &__title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #b2ffb4;
+    line-height: 15px;
+    text-transform: capitalize;
+  }
+  &__author {
+    letter-spacing: 1px;
+    font-weight: 300;
+    color: #f0ff0e;
+  }
+  &__price {
+    width: 100%;
+    text-align: right;
+    font-size: 16px;
+    font-weight: 300;
+    padding-right: 5px;
+    color: #406869;
+    &::before {
+      content: "cost: ";
+      position: absolute;
+      left: 5px;
+    }
+  }
+}
+.error {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: -50px;
+  font-size: 10px;
+  color: red;
+  text-align: center;
+  font-weight: 700;
+  transition: 0.5s ease;
+  &.hide {
+    opacity: 0;
+    visibility: 0;
+  }
 }
