@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+            <div class="book">
+                <div class="book__header">
+                    <div class="book__header__logo">&nbsp;</div>
+                    <nav class="book__header__nav">
+                        <span class="book__header__nav__item book__header__nav__item--active" id="addBookNav" onclick="navClicked('addBookNav')">Add Book</span>
+                        <span class="book__header__nav__item" id="listBookNav" onclick="navClicked('listBookNav')">List Book</span>
+                    </nav>
+                </div>
+                <span class="book__content">
+<span class="book__content__add_books " id="addbook">
+    <label for="name">
+
+        <input type="text" name="" id="name" required>
+        <span>Name</span>
+    </label>
+    <label for="author">
+        <input type="text" name="" id="author" required>
+<span>Author</span>
+    </label>
+    <label for="price">
+        <input type="number" name="" id="price" required>
+<span>Price</span>
+    </label>
+    <label for="desc">
+        <textarea name="desc" id="desc" cols="30" rows="10" required></textarea>
+<span>Description</span>
+    </label>
+    <button onclick="addBook()" type="submit">Add Book</button>
+    <span class="error hide">All fields are mandatory!</span>
+</span>
+<span class="book__content__list_books hide" id="booklist">
+<div class="card">
+  
+</div>
+</span>
+                </span>
+            </div>
+    </div>
+   <script src="script.js"></script>
+</body>
+</html>
